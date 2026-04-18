@@ -1,4 +1,7 @@
-@import "tailwindcss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 @import url("https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=swap");
 
 :root {
@@ -56,38 +59,7 @@
   --foreground: var(--on-surface);
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--on-surface);
-  --color-surface: var(--surface);
-  --color-surface-dim: var(--surface-dim);
-  --color-surface-bright: var(--surface-bright);
-  --color-surface-container-lowest: var(--surface-container-lowest);
-  --color-surface-container-low: var(--surface-container-low);
-  --color-surface-container: var(--surface-container);
-  --color-surface-container-high: var(--surface-container-high);
-  --color-surface-container-highest: var(--surface-container-highest);
-  --color-surface-variant: var(--surface-variant);
 
-  --color-primary: var(--primary);
-  --color-primary-dim: var(--primary-dim);
-  --color-primary-container: var(--primary-container);
-
-  --color-secondary: var(--secondary);
-  --color-secondary-dim: var(--secondary-dim);
-  --color-secondary-container: var(--secondary-container);
-
-  --color-error: var(--error);
-  --color-error-dim: var(--error-dim);
-  --color-error-container: var(--error-container);
-
-  --color-on-surface: var(--on-surface);
-  --color-on-surface-variant: var(--on-surface-variant);
-  --color-outline-variant: var(--outline-variant);
-
-  --font-sans: var(--font-inter);
-  --font-mono: var(--font-space-grotesk);
-}
 
 html {
   scroll-behavior: smooth;
