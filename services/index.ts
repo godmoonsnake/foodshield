@@ -4,6 +4,7 @@
  */
 
 // Re-export functions from the CommonJS module
-const { inspectFood, analyzeImageWithGemini, adjustForTemperature, calculateRiskScore } = require('./foodInspection.js');
+import foodInspection from './foodInspection.js';
+const { inspectFood, analyzeImageWithGemini, adjustForTemperature, calculateRiskScore } = foodInspection;
 
 export { inspectFood, analyzeImageWithGemini, adjustForTemperature, calculateRiskScore };

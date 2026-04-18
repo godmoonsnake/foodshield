@@ -1,9 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
-import 'dotenv/config';
-
-// eslint-disable-next-line @typescript-eslint/no-require-imports
-const { inspectFood } = require('@/services/foodInspection');
-
+import { inspectFood } from '@/services';
 export async function POST(request: NextRequest) {
   try {
     const formData = await request.formData();
