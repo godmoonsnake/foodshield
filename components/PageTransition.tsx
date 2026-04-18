@@ -1,13 +1,15 @@
 'use client';
 
 import { usePathname } from 'next/navigation';
-import { AnimatePresence, motion, type TargetAndTransition } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { useEffect, useState, ReactNode } from 'react';
 
+// Using Record<string, unknown> avoids the "union type too complex" TS error
+// that occurs with framer-motion's TargetAndTransition type.
 interface TransitionConfig {
-  initial: TargetAndTransition;
-  animate: TargetAndTransition;
-  exit: TargetAndTransition;
+  initial: Record<string, unknown>;
+  animate: Record<string, unknown>;
+  exit: Record<string, unknown>;
 }
 
 // Per-route transition configs
@@ -63,8 +65,10 @@ export default function PageTransition({ children }: { children: ReactNode }) {
   return (
     <motion.div
       key={pathname}
-      initial={config.initial}
-      animate={config.animate}
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      initial={config.initial as any}
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      animate={config.animate as any}
       transition={{
         duration: 0.5,
         ease: [0.22, 1, 0.36, 1] as [number, number, number, number],

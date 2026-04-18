@@ -1,10 +1,15 @@
 /**
- * ES Module wrapper for the foodInspection service.
- * This allows the CommonJS service to be imported by Next.js API routes.
+ * FoodShield Services — CommonJS interop bridge
+ * Uses createRequire for reliable CJS import in Next.js App Router (ESM context).
  */
 
-// Re-export functions from the CommonJS module
-import foodInspection from './foodInspection.js';
-const { inspectFood, analyzeImageWithGemini, adjustForTemperature, calculateRiskScore } = foodInspection;
+import { createRequire } from 'module';
+const _require = createRequire(import.meta.url);
 
-export { inspectFood, analyzeImageWithGemini, adjustForTemperature, calculateRiskScore };
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+const foodInspection: any = _require('./foodInspection.js');
+
+export const inspectFood = foodInspection.inspectFood;
+export const analyzeImageWithGemini = foodInspection.analyzeImageWithGemini;
+export const adjustForTemperature = foodInspection.adjustForTemperature;
+export const calculateRiskScore = foodInspection.calculateRiskScore;
